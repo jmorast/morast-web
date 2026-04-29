@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua Morast — Morast LLC</title>
+  <meta name="description" content="Technical mentoring and advisory for Oracle and cloud environments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f7f5f0;
+      --cream-dark: #eeeae2;
+      --border: #d8d4cc;
+      --charcoal: #1e1c18;
+      --charcoal-mid: #2a2720;
+      --text-body: #3a3630;
+      --text-muted: #6b6760;
+      --text-faint: #7a7570;
+      --accent: #9a7c5e;
+      --accent-light: #b5a898;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text-body);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 0.5px solid var(--border);
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--charcoal-mid);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 112px 48px 96px;
+      border-bottom: 0.5px solid var(--border);
+      max-width: 860px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s ease forwards 0.1s;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .hero-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.08;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 52px;
+      font-weight: 300;
+    }
+
+    .hero-divider {
+      width: 28px;
+      height: 1px;
+      background: var(--accent-light);
+      margin-bottom: 40px;
+    }
+
+    /* CONTACT */
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      width: 60px;
+      flex-shrink: 0;
+      font-weight: 400;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: var(--text-body);
+      font-weight: 300;
+    }
+
+    .contact-value a {
+      color: var(--text-body);
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--accent-light);
+      padding-bottom: 1px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .contact-value a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* FIELD NOTES STRIP */
+    .field-notes {
+      background: var(--cream-dark);
+      padding: 52px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+
+    .fn-left {}
+
+    .fn-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .fn-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--charcoal-mid);
+      margin-bottom: 8px;
+    }
+
+    .fn-desc {
+      font-size: 13px;
+      color: var(--text-faint);
+      line-height: 1.65;
+      max-width: 420px;
+      font-weight: 300;
+    }
+
+    .fn-badge {
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 0.5px solid var(--accent-light);
+      padding: 8px 18px;
+      border-radius: 24px;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a4840;
+      font-weight: 400;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #3a3830;
+      font-weight: 300;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .hero {
+        padding: 72px 24px 64px;
+      }
+
+      .hero-name {
+        font-size: 38px;
+      }
+
+      .field-notes {
+        padding: 40px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      footer {
+        padding: 20px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Morast LLC</a>
+    <ul class="nav-links">
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://dba-field-notes.com">DBA Field Notes ↗</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="contact">
+    <div class="hero-eyebrow">Technical Mentoring &amp; Troubleshooting</div>
+    <h1 class="hero-name">Joshua Morast</h1>
+    <p class="hero-desc">Technical mentoring and advisory for Oracle and cloud environments — helping teams fix what's broken, understand what isn't, and stop guessing. Get in touch to talk about how I can help.</p>
+    <div class="hero-divider"></div>
+    <div class="contact-block">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:jmorast@morastllc.com">jmorast@morastllc.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value"><a href="https://linkedin.com/in/jmorast" target="_blank" rel="noopener">linkedin.com/in/jmorast</a></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="field-notes">
+    <div class="fn-left">
+      <div class="fn-label">Writing</div>
+      <div class="fn-title">DBA Field Notes</div>
+      <p class="fn-desc">Practical writing on Oracle, databases, and the realities of keeping systems running — written from the field, not generated from a prompt.</p>
+    </div>
+    <div class="fn-badge">Coming soon</div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">Morast LLC</span>
+    <span class="footer-copy">© 2026</span>
+  </footer>
+
+</body>
+</html>
